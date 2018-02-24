@@ -6,15 +6,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <script src="{{ asset('js/app.js') }}"></script>        
     </head>
     <body>
         @include('partials.dashboard._message')        
         @include('partials.dashboard._navbar')
-        <div uk-height-viewport="expand: true">
-            @yield('content')
+
+        <div class="uk-container uk-container-expand uk-margin-medium">
+            <div uk-grid>
+                <div class="uk-width-1-5@m">
+                    @include('partials.dashboard._sidebar')
+                </div>
+                <div class="uk-width-expand@m">
+                    @yield('content')
+                </div>
+            </div>
         </div>
-        @include('partials.dashboard._sidebar')
+        
         @include('partials.dashboard._footer')
-        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

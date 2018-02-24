@@ -5,8 +5,8 @@ import Icons from 'uikit/dist/js/uikit-icons';
 
 try {
     window.$ = window.jQuery = require('jquery');
-    window.UIKit = require('uikit');
-    UIKit.use(Icons);
+    window.UIkit = require('uikit');
+    UIkit.use(Icons);
 } catch (e) {}
 
 /**
