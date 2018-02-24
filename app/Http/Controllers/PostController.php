@@ -7,7 +7,6 @@ use App\Post;
 use App\Category;
 use Session;
 use Image;
-use Storage;
 
 class PostController extends Controller
 {
@@ -37,11 +36,11 @@ class PostController extends Controller
         $post->category_id = $request->category_id;
         $post->slug = str_slug($request->title); // Define slug
         if($request->hasFile('featured_image')) { 
-            $featured_image = $request->file('featured_image'); // Get image file
-            $filename = time() . '.' . $featured_image->getClientOriginalExtension(); // Rename image to unique name using time
-            $location = public_path('images/posts/' . $filename); // Define location path to save the image
-            Image::make($featured_image)->save($location); // Save the image to $location path
-            $post->featured_image = $filename; // Save only file name, no image
+            $image_file = $request->file('featured_image'); // Get image file
+            $image_file_name = time() . '.' . $image_file->getClientOriginalExtension(); // Rename image to unique name using time
+            $image_location = public_path('images/posts/' . $image_file_name); // Define location path to save the image
+            Image::make($image_file)->save($image_location); // Save the image to $location path
+            $post->featured_image = $image_file_name; // Save only the file name, not image file
         }
         $post->save();
         Session::flash('success', 'Your post has been saved successfully');
@@ -72,17 +71,16 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->content = $request->content;
         $post->category_id = $request->category_id;
-        $post->slug = str_slug($request->title); 
+        $post->slug = str_slug($request->title); // Define slug
         if ($request->hasFile('featured_image')) {
-            $featured_image = $request->file('featured_image');
-            $filename = time() . '.' . $featured_image->getClientOriginalExtension();
-            $location = public_path('images/posts/' . $filename);
-            Image::make($featured_image)->resize(800, 400)->save($location);
-            $oldFileName = $post->featured_image; // Temporary old file name, to ease deleting later after the image deleted
-            // Update the database
-            $post->featured_image = $filename; // Tell the database the filename
+            $image_file = $request->file('featured_image');
+            $image_file_name = time() . '.' . $image_file->getClientOriginalExtension();
+            $image_file_location = public_path('images/posts/' . $image_file_name);
+            $temp_image_file_name = $post->featured_image; // Temporary old file name, to ease deleting later after the image deleted
+            Image::make($image_file)->save($image_file_location);
+            $post->featured_image = $image_file_name; // Tell the database the filename
             // Delete old photo - Go to filesystem.php in config folder, update the local with the current working path
-            Storage::delete($oldFileName);
+            Storage::delete($temp_image_file_name);
         }
         $post->save();
         Session::flash('success', 'Your post has been edit successfully');
@@ -99,22 +97,22 @@ class PostController extends Controller
 
     public function trash()
     {
-        $trashedPosts = Post::onlyTrashed()->get(); //  Get all item which is $deleted_at column is not null
-        return view('admin.posts.trash', compact('trashedPosts'));
+        $trashed_posts = Post::onlyTrashed()->get(); //  Get all item which is $deleted_at column is not null
+        return view('admin.posts.trash', compact('trashed_posts'));
     }
 
     public function restore($id) 
     {
-        $post = Post::withTrashed()->where('id', $id)->first();
-        $post->restore();
+        $trashed_posts = Post::withTrashed()->where('id', $id)->first();
+        $trashed_posts->restore();
         Session::flash('success', 'Post restored successfully');
         return redirect()->route('post.index');
     }
 
     public function emptyTrash($id)
     {
-        $post = Post::withTrashed()->where('id', $id)->first(); // Instead of get(), use first() to catch single item. get() return collection array.
-        $post->forceDelete();
+        $trashed_posts = Post::withTrashed()->where('id', $id)->first(); // Instead of get(), use first() to catch single item. get() return collection array.
+        $trashed_posts->forceDelete();
         Session::flash('success', 'Post deleted permanently');
         return redirect()->back();
     }
