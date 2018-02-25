@@ -10,8 +10,7 @@
             <div class="uk-margin">
                 <label class="uk-form-label">Title:</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" type="text" name="title"> 
-                    @if ($errors->has('title'))
+                    <input class="uk-input" type="text" name="title"> @if ($errors->has('title'))
                     <div class="uk-margin uk-text-danger">
                         <p>{{ $errors->first('title') }}</p>
                     </div>
@@ -48,6 +47,16 @@
                         <p>{{ $errors->first('category_id') }}</p>
                     </div>
                     @endif
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <span class="uk-form-label">Tag:</span>
+                <div class="uk-form-controls uk-form-controls-text">
+                    @foreach($tags as $tag)
+                    <label class="uk-margin-small-right">
+                        <input class="uk-checkbox" type="checkbox" name="name[]" value="{{ $tag->id }}"> {{ $tag->name }}</label>
+                    @endforeach
                 </div>
             </div>
 

@@ -1,5 +1,9 @@
 <?php
 
+Route::get('/test', function(){
+     return App\Post::find(5)->category;
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -30,4 +34,13 @@ Route::middleware('auth')->group(function (){
     Route::patch('/admin/category/{id}', 'CategoryController@update')->name('category.update');
     Route::delete('/admin/category/{id}', 'CategoryController@destroy')->name('category.destroy');
     Route::get('/admin/category/{id}/edit', 'CategoryController@edit')->name('category.edit');
+
+    // Tag
+    Route::get('/admin/tag/', 'TagController@index')->name('tag.index');
+    Route::post('/admin/tag/', 'TagController@store')->name('tag.store');
+    Route::get('/admin/tag/create', 'TagController@create')->name('tag.create');
+    Route::get('/admin/tag/{id}', 'TagController@show')->name('tag.show');
+    Route::patch('/admin/tag/{id}', 'TagController@update')->name('tag.update');
+    Route::delete('/admin/tag/{id}', 'TagController@destroy')->name('tag.destroy');
+    Route::get('/admin/tag/{id}/edit', 'TagController@edit')->name('tag.edit');
 });

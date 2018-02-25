@@ -34,10 +34,10 @@
                     <span class="uk-margin-small-right" uk-icon="icon: tag"></span>Tags</a>
                 <ul class="uk-nav-sub">
                     <li class="uk-margin-small-top">
-                        <a href="#">All Tags</a>
+                        <a href="{{ route('tag.index') }}">All Tags</a>
                     </li>
                     <li class="uk-margin-small-top">
-                        <a href="#">Create Tags</a>
+                        <a href="{{ route('tag.create') }}">Create Tags</a>
                     </li>
                 </ul>
             </li>

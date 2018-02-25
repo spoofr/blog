@@ -20,7 +20,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}.</td>
                     <td>
-                        <img class="uk-height-small" src="{{ $post->featured_image }}">
+                        <img class="uk-height-small uk-border-rounded" src="{{ $post->featured_image }}">
                     </td>
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->content }}</td>

@@ -23,7 +23,7 @@
         </div>
         <div class="uk-width-1-3@m">
             <div class="uk-card uk-card-primary uk-card-body">
-                <h3>Tags</h3>
+                <h3>{{ $tags_count }} Tags</h3>
             </div>
         </div>
     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
+use App\Tag;
 use Session;
 use Image;
 
@@ -19,7 +20,8 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all(); // Category input 
-        return view('admin.posts.create', compact('categories'));
+        $tags = Tag::all(); // Category input         
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     public function store(Request $request)
@@ -28,7 +30,8 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'content' => 'required',
             'category_id' => 'required',
-            'featured_image' => 'required|image'
+            'featured_image' => 'required|image',
+            'name' => 'required'
         ]);
         $post = new Post;
         $post->title = $request->title;
@@ -43,6 +46,7 @@ class PostController extends Controller
             $post->featured_image = $image_file_name; // Save only the file name, not image file
         }
         $post->save();
+        $post->tags()->attach($request->name); // This do the trick for pivot table association, The tags() come from the Post.php model. The attach() method is used to attach post_table with tag_table, then store it in post_tag table
         Session::flash('success', 'Your post has been saved successfully');
         return redirect()->route('post.index');
     }
