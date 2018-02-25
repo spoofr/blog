@@ -35,4 +35,16 @@
 
     </div>
 </div>
+
+<script>
+@if(Session::has('success'))
+UIkit.notification({
+    message: '<span uk-icon="icon: check"></span> <span class="uk-text-bold">{{ Session::get("success") }}</span>',
+    status: 'success',
+    pos: 'top-right',
+    timeout: 7000
+});
+@endif
+</script>
+
 @endsection

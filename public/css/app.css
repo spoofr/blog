@@ -7760,13 +7760,13 @@ ul.uk-nav-sub {
 .uk-notification {
   /* 1 */
   position: fixed;
-  top: 10px;
-  left: 10px;
+  top: 20px;
+  left: 20px;
   z-index: 1040;
   /* 2 */
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 350px;
+  width: 500px;
 }
 
 /* Position modifiers
@@ -7775,20 +7775,20 @@ ul.uk-nav-sub {
 .uk-notification-top-right,
 .uk-notification-bottom-right {
   left: auto;
-  right: 10px;
+  right: 20px;
 }
 
 .uk-notification-top-center,
 .uk-notification-bottom-center {
   left: 50%;
-  margin-left: -175px;
+  margin-left: -250px;
 }
 
 .uk-notification-bottom-left,
 .uk-notification-bottom-right,
 .uk-notification-bottom-center {
   top: auto;
-  bottom: 10px;
+  bottom: 20px;
 }
 
 /* Responsiveness
@@ -7798,8 +7798,8 @@ ul.uk-nav-sub {
 
 @media (max-width: 639px) {
   .uk-notification {
-    left: 10px;
-    right: 10px;
+    left: 20px;
+    right: 20px;
     width: auto;
     margin: 0;
   }
@@ -7812,9 +7812,9 @@ ul.uk-nav-sub {
   position: relative;
   margin-bottom: 10px;
   padding: 15px;
-  background: #f8f8f8;
-  color: #666;
-  font-size: 1.25rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 16px;
   line-height: 1.4;
   cursor: pointer;
 }
