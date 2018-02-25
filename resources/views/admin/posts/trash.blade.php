@@ -14,12 +14,13 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
+            
+                @if($trashed_posts->count() > 0)
                 @foreach($trashed_posts as $trashed_post)
                 <tr>
                     <td>{{ $loop->iteration }}.</td>
                     <td>
-                        <img height="50px" src="{{ $trashed_post->featured_image }}">
+                        <img class="uk-height-small" src="{{ $trashed_post->featured_image }}">
                     </td>
                     <td>{{ $trashed_post->title }}</td>
                     <td>{{ $trashed_post->content }}</td>
@@ -34,6 +35,11 @@
                     </td>
                 </tr>
                 @endforeach
+                @else
+                <tr>
+                    <th colspan="6" class="uk-text-center">No trashed post.</th>
+                </tr>
+                @endif
 
             </tbody>
         </table>

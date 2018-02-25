@@ -44,7 +44,7 @@ class PostController extends Controller
         }
         $post->save();
         Session::flash('success', 'Your post has been saved successfully');
-        return redirect()->back();
+        return redirect()->route('post.index');
     }
 
     public function show($id)
@@ -53,7 +53,7 @@ class PostController extends Controller
     }
 
     public function edit($id)
-    {
+    {   
         $post = Post::find($id);
         $categories = Category::all(); // Category input
         return view('admin.posts.edit', compact('post', 'categories'));

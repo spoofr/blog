@@ -13,7 +13,7 @@
                         <a href="{{ route('post.index') }}">All Posts</a>
                     </li>
                     <li class="uk-margin-small-top">
-                        <a href="#">Create Posts</a>
+                        <a href="{{ route('post.create') }}">Create Posts</a>
                     </li>
                 </ul>
             </li>
