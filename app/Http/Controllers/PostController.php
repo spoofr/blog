@@ -60,7 +60,8 @@ class PostController extends Controller
     {   
         $post = Post::find($id);
         $categories = Category::all(); // Category input
-        return view('admin.posts.edit', compact('post', 'categories'));
+        $tags = Tag::all(); // Tag input        
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     public function update(Request $request, $id)
@@ -87,6 +88,7 @@ class PostController extends Controller
             Storage::delete($temp_image_file_name);
         }
         $post->save();
+        $post->tags()->sync($request->name); // name is for tag        
         Session::flash('success', 'Your post has been edit successfully');
         return redirect()->route('post.index');
     }

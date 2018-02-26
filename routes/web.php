@@ -43,4 +43,15 @@ Route::middleware('auth')->group(function (){
     Route::patch('/admin/tag/{id}', 'TagController@update')->name('tag.update');
     Route::delete('/admin/tag/{id}', 'TagController@destroy')->name('tag.destroy');
     Route::get('/admin/tag/{id}/edit', 'TagController@edit')->name('tag.edit');
+
+    // User
+    Route::get('/admin/user/', 'UserController@index')->name('user.index');
+    Route::post('/admin/user/', 'UserController@store')->name('user.store');
+    Route::get('/admin/user/create', 'UserController@create')->name('user.create');
+    Route::get('/admin/user/{id}', 'UserController@show')->name('user.show');
+    Route::patch('/admin/user/{id}', 'UserController@update')->name('user.update');
+    Route::delete('/admin/user/{id}', 'UserController@destroy')->name('user.destroy');
+    Route::get('/admin/user/{id}/edit', 'UserController@edit')->name('user.edit');
+    Route::get('/admin/user/admin/{id}', 'UserController@makeAdmin')->name('user.makeAdmin');
+    Route::get('/admin/user/revoke-admin/{id}', 'UserController@revokeAdmin')->name('user.revokeAdmin');    
 });

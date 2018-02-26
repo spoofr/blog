@@ -11,10 +11,18 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        App\User::insert([
+        $user = App\User::create([
             'name' => 'Coed',
             'email' => 'name@domain.com',
-            'password' => bcrypt('123456')
+            'password' => bcrypt('123456'),
+            'admin' => 1
+        ]);
+
+        App\Profile::create([
+            'user_id' => $user->id,
+            'avatar' => 'images/avatars/avatar.jpg',
+            'about' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi excepturi inventore adipisci nesciunt soluta assumenda amet eveniet cupiditate minus corporis illum natus cum, ipsa repellendus delectus fuga harum consectetur.',
+            'twitter' => 'twitter.com'
         ]);
         
         // use Illuminate\Support\Facades\DB;

@@ -37,9 +37,15 @@
             <div class="uk-margin">
                 <label class="uk-form-label">Category:</label>
                 <div class="uk-form-controls">
+                        {{--  {{ $category->id == $post->category_id ? ' selected ' : " " }}  --}}
                     <select class="uk-select" name="category_id">
                         @foreach($categories as $category)
-                        <option value="{{ $category->id }}" {{ $category->id == $post->category_id ? ' selected="selected" ' : " " }}>{{ $category->name }}</option>
+                        <option value="{{ $category->id }}" 
+                            @if($post->category->id == $category->id) {{--  No need to loop because it is one to many relay  --}}
+                                selected
+                            @endif
+
+                            >{{ $category->name }}</option>
                         @endforeach
                     </select>
                     @if ($errors->has('category_id'))
@@ -47,6 +53,23 @@
                         <p>{{ $errors->first('category_id') }}</p>
                     </div>
                     @endif
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <span class="uk-form-label">Tag:</span>
+                <div class="uk-form-controls uk-form-controls-text">
+                    @foreach($tags as $tag)
+                    <label class="uk-margin-small-right">
+                        <input class="uk-checkbox" type="checkbox" name="name[]" value="{{ $tag->id }}" 
+                        @foreach($post->tags as $t) {{--  Need to loop because it is many to many relay  --}}
+                            @if($tag->id == $t->id)
+                                checked
+                            @endif
+                        @endforeach
+
+                        > {{ $tag->name }}</label>
+                    @endforeach
                 </div>
             </div>
 
@@ -63,7 +86,7 @@
             </div>
 
             <div class="uk-margin">
-                <button type="submit" class="uk-button uk-button-primary uk-float-right">Post!</button>
+                <button type="submit" class="uk-button uk-button-primary uk-float-right">Update!</button>
             </div>
         </form>
     </div>
