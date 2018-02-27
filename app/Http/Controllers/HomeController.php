@@ -31,6 +31,6 @@ class HomeController extends Controller
         $category_count = Category::count();
         $tags_count = Tag::count();
         $users_count = User::count();   
-        return view('home', compact('category_count', 'post_count', 'tags_count', 'users_count'));
+        return view('dashboard', compact('category_count', 'post_count', 'tags_count', 'users_count'));
     }
 }

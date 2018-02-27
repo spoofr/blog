@@ -46,6 +46,6 @@ class ProfileController extends Controller
         $user->save();
         $user->profile->save();
         Session::flash('success', 'Profile updated successfully');
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     }
 }

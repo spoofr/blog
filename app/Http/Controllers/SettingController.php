@@ -29,6 +29,6 @@ class SettingController extends Controller
         $setting->address = request()->address;
         $setting->save();
         Session::flash('success', 'Setting updated successfully');
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     }
 }
