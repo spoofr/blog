@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/admin/home', 'HomeController@index')                                       ->name('home');
+Route::get('/admin/dashboard', 'HomeController@index')                                       ->name('dashboard');
 
 // Auth middleware
 Route::middleware('auth')->group(function (){
