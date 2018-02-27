@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')                                             ->name('home');
+Route::get('/admin/home', 'HomeController@index')                                       ->name('home');
 
 // Auth middleware
 Route::middleware('auth')->group(function (){
@@ -58,5 +58,9 @@ Route::middleware('auth')->group(function (){
 
     // Profile
     Route::get('/admin/profile', 'ProfileController@index')                             ->name('profile'); 
-    Route::post('/admin/profile/update', 'ProfileController@update')                    ->name('profile.update');     
+    Route::post('/admin/profile/update', 'ProfileController@update')                    ->name('profile.update');  
+    
+    // Settings
+    Route::get('/admin/settings', 'SettingController@index')                            ->name('settings')                    ->middleware('admin');
+    Route::post('/admin/settings/update', 'SettingController@update')                   ->name('settings.update')             ->middleware('admin');
 });
