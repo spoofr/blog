@@ -25,10 +25,10 @@
                     <td>{{ $trashed_post->title }}</td>
                     <td>{{ $trashed_post->content }}</td>
                     <td>
-                        <a href="{{ route('post.restore', $trashed_post->id) }}" uk-icon="icon: refresh"></a>
+                        <a href="{{ route('post.restore.trash', $trashed_post->id) }}" uk-icon="icon: refresh"></a>
                         <a href="" class="uk-icon-link" onclick="event.preventDefault();document.getElementById('empty-trash-form-{{ $trashed_post->id }}').submit();"
                             uk-icon="icon: trash"></a>
-                        <form id="empty-trash-form-{{ $trashed_post->id }}" method="POST" action="{{ route('post.emptyTrash', $trashed_post->id) }}"
+                        <form id="empty-trash-form-{{ $trashed_post->id }}" method="POST" action="{{ route('post.empty.trash', $trashed_post->id) }}"
                             style="display: none;">
                             @csrf {{ method_field('DELETE') }}
                         </form>

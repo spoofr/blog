@@ -29,9 +29,9 @@
                     </td>
                     <td>
                         @if($user->admin)
-                        <a href="{{ route('user.revokeAdmin', $user->id) }}" class="uk-button uk-button-danger uk-button-small">Revoke admin</a>
+                        <a href="{{ route('user.revoke.admin', $user->id) }}" class="uk-button uk-button-danger uk-button-small">Revoke admin</a>
                         @else
-                        <a href="{{ route('user.makeAdmin', $user->id) }}" class="uk-button uk-button-primary uk-button-small">Make an admin</a>
+                        <a href="{{ route('user.make.admin', $user->id) }}" class="uk-button uk-button-primary uk-button-small">Make an admin</a>
                         @endif
                     </td>
                     <td>

@@ -56,8 +56,7 @@
                     @foreach($tags as $tag)
                     <label class="uk-margin-small-right">
                         <input class="uk-checkbox" type="checkbox" name="name[]" value="{{ $tag->id }}"> {{ $tag->name }}</label>
-                    @endforeach
-                    @if ($errors->has('name'))
+                    @endforeach @if ($errors->has('name'))
                     <div class="uk-margin uk-text-danger">
                         <p>{{ $errors->first('name') }}</p>
                     </div>
@@ -68,7 +67,7 @@
             <div class="uk-margin">
                 <label class="uk-form-label">Content:</label>
                 <div class="uk-form-controls">
-                    <textarea class="uk-textarea" rows="5" name="content"></textarea>
+                    <textarea class="uk-textarea" rows="5" name="content" id="trumbowyg"></textarea>
                     @if ($errors->has('content'))
                     <div class="uk-margin uk-text-danger">
                         <p>{{ $errors->first('content') }}</p>
@@ -83,4 +82,26 @@
         </form>
     </div>
 </div>
+
+@endsection
+
+{{--  Styles  --}}
+@section('styles')
+
+<link rel="stylesheet" href="{{ asset('trumbowyg/dist/ui/trumbowyg.min.css') }}"> {{--  Import Trumbowyg styles  --}}
+
+@endsection
+
+{{--  Scripts  --}}
+@section('scripts')
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  {{--  Import jQuery   --}}
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+<script src="{{ asset('trumbowyg/dist/trumbowyg.js') }}"></script> {{--  Import Trumbowyg   --}}
+
+{{--  Init Trumbowyg  --}}
+<script>
+    $('#trumbowyg').trumbowyg();
+</script>
+
 @endsection

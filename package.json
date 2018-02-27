@@ -17,5 +17,8 @@
         "lodash": "^4.17.4",
         "vue": "^2.5.7",
         "uikit": "^3.0.0-beta.40"
+    },
+    "dependencies": {
+        "trumbowyg": "^2.9.4"
     }
 }

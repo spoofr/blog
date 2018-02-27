@@ -20,10 +20,10 @@ Route::middleware('auth')->group(function (){
     Route::post('/admin/post/', 'PostController@store')->name('post.store');
     Route::get('/admin/post/create', 'PostController@create')->name('post.create');
     Route::get('/admin/post/trash', 'PostController@trash')->name('post.trash');        
-    Route::get('/admin/post/{id}/restore', 'PostController@restore')->name('post.restore');
+    Route::get('/admin/post/{id}/restore', 'PostController@restore')->name('post.restore.trash');
     Route::patch('/admin/post/{id}/update', 'PostController@update')->name('post.update');
     Route::delete('/admin/post/{id}/destroy', 'PostController@destroy')->name('post.destroy'); // Fix this
-    Route::delete('/admin/post/{id}/empty-trash', 'PostController@emptyTrash')->name('post.emptyTrash');
+    Route::delete('/admin/post/{id}/empty-trash', 'PostController@emptyTrash')->name('post.empty.trash');
     Route::get('/admin/post/{id}/edit', 'PostController@edit')->name('post.edit');
 
     // Category
@@ -52,8 +52,8 @@ Route::middleware('auth')->group(function (){
     Route::patch('/admin/user/{id}/update', 'UserController@update')->name('user.update');
     Route::delete('/admin/user/{id}/destroy', 'UserController@destroy')->name('user.destroy');
     Route::get('/admin/user/{id}/edit', 'UserController@edit')->name('user.edit');
-    Route::get('/admin/user/{id}/make-admin', 'UserController@makeAdmin')->name('user.makeAdmin');
-    Route::get('/admin/user/{id}/revoke-admin', 'UserController@revokeAdmin')->name('user.revokeAdmin');    
+    Route::get('/admin/user/{id}/make-admin', 'UserController@makeAdmin')->name('user.make.admin');
+    Route::get('/admin/user/{id}/revoke-admin', 'UserController@revokeAdmin')->name('user.revoke.admin');    
 
     // Profile
     Route::get('/admin/profile', 'ProfileController@index')->name('profile'); 
