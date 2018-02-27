@@ -3,7 +3,7 @@
         @if(Auth::user()->admin)
         <ul class="uk-nav-default uk-nav-parent-icon" uk-nav="multiple: true">
             <li class="uk-active uk-margin">
-                <a href="{{ route('home') }}">
+                <a href="{{ route('dashboard') }}">
                     <span class="uk-margin-small-right" uk-icon="icon: home"></span>Dashboard</a>
             </li>
             <li class="uk-parent uk-margin">
@@ -64,7 +64,7 @@
 
         <ul class="uk-nav-default uk-nav-parent-icon" uk-nav="multiple: true">
             <li class="uk-active uk-margin">
-                <a href="{{ route('home') }}">
+                <a href="{{ route('dashboard') }}">
                     <span class="uk-margin-small-right" uk-icon="icon: home"></span>Dashboard</a>
             </li>
             <li class="uk-parent uk-margin">

@@ -28,8 +28,17 @@
                         {{ $user->name }}
                     </td>
                     <td>
+                        {{--  @if(Auth::id() == $user->id)
+                        <a class="uk-button uk-button-default uk-button-small uk-disabled">Administrator</a>
+                        @else
+                        <a class="uk-button uk-button-default uk-button-small uk-disabled">Author</a>
+                        @endif  --}}
                         @if($user->admin)
+                        @if(Auth::id() == $user->id)
+                        <a class="uk-button uk-button-default uk-button-small uk-disabled">Administrator</a>
+                        @else                        
                         <a href="{{ route('user.revoke.admin', $user->id) }}" class="uk-button uk-button-danger uk-button-small">Revoke admin</a>
+                        @endif 
                         @else
                         <a href="{{ route('user.make.admin', $user->id) }}" class="uk-button uk-button-primary uk-button-small">Make an admin</a>
                         @endif
