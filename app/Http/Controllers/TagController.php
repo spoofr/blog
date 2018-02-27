@@ -41,13 +41,13 @@ class TagController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'tag' =>'required'
+            'name' =>'required'
         ]);
-        $tags = Tag::find($id);
-        $tag->tag = $request->tag;
+        $tag = Tag::find($id);
+        $tag->name = $request->name;
         $tag->save();
         Session::flash('success', 'Tag updated successfully');        
-        return redirect()->back();
+        return redirect()->route('tag.index');
     }
 
     public function destroy($id)
