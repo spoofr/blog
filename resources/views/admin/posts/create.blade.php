@@ -83,25 +83,19 @@
     </div>
 </div>
 
-@endsection
+@endsection {{-- Styles --}} @section('styles')
 
-{{--  Styles  --}}
-@section('styles')
+<link rel="stylesheet" href="{{ asset('trumbowyg/dist/ui/trumbowyg.min.css') }}"> {{-- Import Trumbowyg styles --}} @endsection {{-- Scripts --}} @section('scripts')
 
-<link rel="stylesheet" href="{{ asset('trumbowyg/dist/ui/trumbowyg.min.css') }}"> {{--  Import Trumbowyg styles  --}}
-
-@endsection
-
-{{--  Scripts  --}}
-@section('scripts')
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  {{--  Import jQuery   --}}
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-<script src="{{ asset('trumbowyg/dist/trumbowyg.js') }}"></script> {{--  Import Trumbowyg   --}}
-
-{{--  Init Trumbowyg  --}}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> {{-- Import jQuery --}}
 <script>
-    $('#trumbowyg').trumbowyg();
+    window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')
+</script>
+<script src="{{ asset('trumbowyg/dist/trumbowyg.js') }}"></script> {{-- Import Trumbowyg --}} {{-- Init Trumbowyg --}}
+<script>
+    $('#trumbowyg').trumbowyg({
+        autogrow: true
+    });
 </script>
 
 @endsection

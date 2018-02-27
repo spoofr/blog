@@ -18,12 +18,12 @@
                                 <b>{{ Auth::user()->name }}</b>
                             </li>
                             <li class="uk-nav-divider"></li>
-                            <li class="uk-active">
+                            <li class="{{ (Request::is('admin/profile') ? "uk-active" : "") }}">
                                 <a href="{{ route('profile') }}">Profile
                                     <span class="uk-float-right" uk-icon="icon: happy"></span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="{{ (Request::is('home') ? "uk-active" : "") }}">
                                 <a href="{{ route('home') }}">Dashboard
                                     <span class="uk-float-right" uk-icon="icon: settings"></span>
                                 </a>
