@@ -19,13 +19,13 @@
                             </li>
                             <li class="uk-nav-divider"></li>
                             <li class="uk-active">
-                                <a href="#">Profile
+                                <a href="{{ route('profile') }}">Profile
                                     <span class="uk-float-right" uk-icon="icon: happy"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">Settings
-                                    <span class="uk-float-right" uk-icon="icon: cog"></span>
+                                <a href="{{ route('home') }}">Dashboard
+                                    <span class="uk-float-right" uk-icon="icon: settings"></span>
                                 </a>
                             </li>
                             <li class="uk-nav-divider"></li>

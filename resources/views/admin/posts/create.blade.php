@@ -37,7 +37,7 @@
                 <label class="uk-form-label">Category:</label>
                 <div class="uk-form-controls">
                     <select class="uk-select" name="category_id">
-                        <option>Select..</option>
+                        <option value="">Select..</option>
                         @foreach($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
@@ -57,6 +57,11 @@
                     <label class="uk-margin-small-right">
                         <input class="uk-checkbox" type="checkbox" name="name[]" value="{{ $tag->id }}"> {{ $tag->name }}</label>
                     @endforeach
+                    @if ($errors->has('name'))
+                    <div class="uk-margin uk-text-danger">
+                        <p>{{ $errors->first('name') }}</p>
+                    </div>
+                    @endif
                 </div>
             </div>
 

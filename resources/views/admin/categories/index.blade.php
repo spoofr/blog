@@ -13,6 +13,7 @@
                 </tr>
             </thead>
             <tbody>
+                @if($categories->count() > 0)
                 @foreach($categories as $category)
                 <tr>
                     <td>{{ $loop->iteration }}.</td>
@@ -28,6 +29,11 @@
                     </td>
                 </tr>
                 @endforeach
+                @else
+                <tr>
+                    <th colspan="6" class="uk-text-center">No categories</th>
+                </tr>
+                @endif
 
             </tbody>
         </table>

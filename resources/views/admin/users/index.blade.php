@@ -21,20 +21,27 @@
                         {{ $loop->iteration }}
                     </td>
                     <td>
-                        <img class="uk-comment-avatar" src="{{ asset($user->profile->avatar) }}" width="80" height="80" alt="">
+                        <img class="uk-comment-avatar uk-border-rounded" src="{{ asset('/images/avatars/' . $user->profile->avatar) }}" width="80"
+                            height="80" alt="">
                     </td>
                     <td>
                         {{ $user->name }}
                     </td>
                     <td>
-                    @if($user->admin) 
-                    <a href="{{ route('user.revokeAdmin', $user->id) }}" class="uk-button uk-button-danger uk-button-small">Revoke admin</a>                    
-                    @else 
-                    <a href="{{ route('user.makeAdmin', $user->id) }}" class="uk-button uk-button-primary uk-button-small">Make an admin</a>
-                    @endif
+                        @if($user->admin)
+                        <a href="{{ route('user.revokeAdmin', $user->id) }}" class="uk-button uk-button-danger uk-button-small">Revoke admin</a>
+                        @else
+                        <a href="{{ route('user.makeAdmin', $user->id) }}" class="uk-button uk-button-primary uk-button-small">Make an admin</a>
+                        @endif
                     </td>
                     <td>
-                        Delete
+                        @if(Auth::id() !== $user->id)
+                        <a href="" class="uk-icon-link" onclick="event.preventDefault();document.getElementById('delete-user-form-{{ $user->id }}').submit();"
+                            uk-icon="icon: trash"></a>
+                        <form id="delete-user-form-{{ $user->id }}" method="POST" action="{{ route('user.destroy', $user->id) }}" style="display: none;">
+                            @csrf {{ method_field('DELETE') }}
+                        </form>
+                        @endif
                     </td>
                 </tr>
                 @endforeach @else

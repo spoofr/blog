@@ -9,6 +9,11 @@ use Session;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $users = User::all();
@@ -33,10 +38,19 @@ class UserController extends Controller
         ]);
         $profile = Profile::create([ // Create new Profile for user. only pass user_id for relay
             'user_id' => $user->id,
-            'avatar' => 'images/avatars/avatar.jpg'
+            'avatar' => 'avatar.jpg'
         ]);
         Session::flash('success', 'User added successfully');
         return redirect()->route('user.index');
+    }
+
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        $user->profile->delete();
+        $user->delete();
+        Session::flash('success', 'Successfully delete user');
+        return redirect()->back();
     }
 
     public function makeAdmin($id)

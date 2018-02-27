@@ -11,6 +11,8 @@
                     <th>Featured Image</th>
                     <th>Title</th>
                     <th>Content</th>
+                    <th>Category</th>
+                    <th>Tags</th>                    
                     <th>Action</th>
                 </tr>
             </thead>
@@ -24,12 +26,18 @@
                     </td>
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->content }}</td>
+                    <td>{{ $post->category->name }}</td>
+                    <td>
+                        @foreach($post->tags as $tag)
+                        <span class="uk-badge">{{ $tag->name }}</span>
+                        @endforeach
+                    </td>
                     <td>
                         <a href="{{ route('post.edit', $post->id) }}" uk-icon="icon: pencil"></a>
                         <a href="" class="uk-icon-link" onclick="event.preventDefault();document.getElementById('delete-post-form-{{ $post->id }}').submit();"
                             uk-icon="icon: trash"></a>
                         <form id="delete-post-form-{{ $post->id }}" method="POST" action="{{ route('post.destroy', $post->id) }}" style="display: none;">
-                            @csrf
+                            @csrf {{ method_field('DELETE') }}
                         </form>
                     </td>
                 </tr>
