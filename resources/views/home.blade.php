@@ -11,21 +11,26 @@
         @endif
     </div>
     <div class="uk-grid-match uk-grid-small uk-margin" uk-grid>
-        <div class="uk-width-1-3@m">
+        <div class="uk-width-1-4@m">
             <div class="uk-card uk-card-primary uk-card-body">
-                <h3>{{ $post_count }} Posts</h3>
+                <h3>{{ $post_count }} Posts <span class="uk-float-right" uk-icon="icon: file-edit; ratio: 1.5"></span></h3>
             </div>
         </div>
-        <div class="uk-width-1-3@m">
+        <div class="uk-width-1-4@m">
             <div class="uk-card uk-card-primary uk-card-body">
-                <h3>{{ $category_count }} Category</h3>
+                <h3>{{ $category_count }} Category <span class="uk-float-right" uk-icon="icon: bookmark; ratio: 1.5"></span></h3>
             </div>
         </div>
-        <div class="uk-width-1-3@m">
+        <div class="uk-width-1-4@m">
             <div class="uk-card uk-card-primary uk-card-body">
-                <h3>{{ $tags_count }} Tags</h3>
+                <h3>{{ $tags_count }} Tags <span class="uk-float-right" uk-icon="icon: tag; ratio: 1.5"></span></h3>
             </div>
         </div>
+        <div class="uk-width-1-4@m">
+                <div class="uk-card uk-card-primary uk-card-body">
+                    <h3>{{ $users_count }} Users <span class="uk-float-right" uk-icon="icon: users; ratio: 1.5"></span></h3>
+                </div>
+            </div>
     </div>
 </div>
 @endsection

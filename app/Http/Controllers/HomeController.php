@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
 use App\Tag;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -28,7 +29,8 @@ class HomeController extends Controller
     {
         $post_count = Post::count();
         $category_count = Category::count();
-        $tags_count = Tag::count();        
-        return view('home', compact('category_count', 'post_count', 'tags_count'));
+        $tags_count = Tag::count();
+        $users_count = User::count();   
+        return view('home', compact('category_count', 'post_count', 'tags_count', 'users_count'));
     }
 }

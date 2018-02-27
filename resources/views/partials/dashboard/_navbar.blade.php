@@ -18,16 +18,23 @@
                                 <b>{{ Auth::user()->name }}</b>
                             </li>
                             <li class="uk-nav-divider"></li>
-                            <li class="{{ (Request::is('admin/profile') ? "uk-active" : "") }}">
-                                <a href="{{ route('profile') }}">Profile
-                                    <span class="uk-float-right" uk-icon="icon: happy"></span>
-                                </a>
-                            </li>
-                            <li class="{{ (Request::is('home') ? "uk-active" : "") }}">
+                            <li class="{{ (Request::is('home') ? " uk-active " : " ") }}">
                                 <a href="{{ route('home') }}">Dashboard
                                     <span class="uk-float-right" uk-icon="icon: settings"></span>
                                 </a>
                             </li>
+                            <li class="{{ (Request::is('admin/profile') ? " uk-active " : " ") }}">
+                                <a href="{{ route('profile') }}">Profile
+                                    <span class="uk-float-right" uk-icon="icon: happy"></span>
+                                </a>
+                            </li>
+                            @if(Auth::user()->admin)
+                            <li class="{{ (Request::is('admin/settings') ? " uk-active " : " ") }}">
+                                <a href="{{ route('settings') }}">Settings
+                                    <span class="uk-float-right" uk-icon="icon: cog"></span>
+                                </a>
+                            </li>
+                            @endif
                             <li class="uk-nav-divider"></li>
                             <li>
                                 <a href="#" onclick="event.preventDefault();
