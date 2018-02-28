@@ -5,13 +5,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        
-        {{--  Styles  --}}
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        @yield('styles')
-
-        {{--  Script  --}}
-        <script src="{{ asset('js/app.js') }}"></script>        
+        <link href="{{ asset('css/admin.css') }}" rel="stylesheet"> {{--  Styles  --}}
+        @yield('styles') {{-- Yield styles --}}
+        <script src="{{ asset('js/admin.js') }}"></script> {{--  Script  --}}
     </head>
     <body>    
         @include('partials.dashboard._navbar')
@@ -26,8 +22,6 @@
                 </div>
             </div>
         </div>
-        
-        @include('partials.dashboard._footer')
 
         @include('partials.dashboard._message')
 
