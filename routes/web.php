@@ -10,10 +10,25 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/admin/home', 'HomeController@index')                                       ->name('home');
+Route::get('/', 'PageController@index')                                       ->name('home');
+Route::get('/post/{slug}', 'PageController@singlePage')                                       ->name('post.single');
+Route::get('/category/{id}', 'PageController@categoryPage')                                       ->name('category.single');
+Route::get('/tag/{id}', 'PageController@tagPage')                                       ->name('tag.single');
+Route::get('/search', function () {
+    $posts = App\Post::where('title', 'like', '%' . request('search') . '%')->get();
+    $categories = App\Category::take(5)->get();        
+    $setting = App\Setting::first(); // Use first() because it has only one row instance
+    $tags = App\Tag::all(); 
+    $search = request('search');
+    return view('search', compact('setting', 'categories', 'posts', 'tags', 'search'));
+})->name('search');
+
 
 // Auth middleware
 Route::middleware('auth')->group(function (){
+
+    // Home
+    Route::get('/admin/home', 'HomeController@index')                                       ->name('home');
 
     // Post
     Route::get('/admin/post/', 'PostController@index')                                  ->name('post.index');

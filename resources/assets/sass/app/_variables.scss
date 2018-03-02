@@ -2,18 +2,31 @@
 $global-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
 $global-small-font-size: 1rem !default;
 
+// Navbar
+$navbar-background: #fff !default;
+
+// Notification
 $notification-position: 20px !default;
 $notification-width: 500px !default;
 $notification-message-margin-bottom: 10px !default;
-// $notification-message-padding: $global-small-gutter !default;
 $notification-message-background: rgba(0, 0, 0, 0.8) !default;
 $notification-message-color: #fff !default; 
 $notification-message-font-size: 16px !default;
 $notification-message-line-height: 1.4 !default;
+// $notification-message-padding: $global-small-gutter !default;
 // $notification-close-top: $notification-message-padding + 5px !default;
 // $notification-close-right: $notification-message-padding !default;
 // $notification-message-primary-color: $global-primary-background !default;
 // $notification-message-success-color: $global-success-background !default;
 // $notification-message-warning-color: $global-warning-background !default;
 // $notification-message-danger-color: $global-danger-background !default;
-$badge-padding-horizontal: 10px !default;
+
+// Badge
+$badge-size: 35px !default;
+$badge-padding-horizontal: 20px !default;
+
+// Shadow
+$global-small-box-shadow: 0 0px 0px !default;
+$global-medium-box-shadow: 0 0px 0px !default;
+$global-large-box-shadow: 0 0px 0px !default;
+$global-xlarge-box-shadow: 0 0px 0px !default;

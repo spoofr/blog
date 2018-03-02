@@ -1,38 +1,12 @@
-<div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar; top: 250">
-    <nav class="uk-navbar-container">
-        <div class="uk-container" uk-navbar>
+<nav class="uk-navbar-container">
+        <div class="uk-container uk-container-expand" uk-navbar>
             <div class="uk-navbar-left">
-                <a href="/" class="uk-navbar-item uk-logo uk-margin-right">{{ $setting->site_name }}</a>
-                <ul class="uk-navbar-nav">
-
-                    <li>
-                        <a href="#" class="">Category</a>
-                        <div class="uk-navbar-dropdown">
-                            <ul class="uk-nav uk-navbar-dropdown-nav">
-                                @foreach($categories as $category)
-                                <li>
-                                    <a href="{{ route('category.single', $category->id) }}">{{ $category->name }}</a>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </li>
-
-                </ul>
+                <a href="#" class="uk-navbar-item uk-logo">Blog</a>
             </div>
             <div class="uk-navbar-right">
                 @guest
                 <div class="uk-navbar-item">
-                    <ul class="uk-grid-small" uk-grid>
-                        <li>
-                            <a class="uk-icon-link" href="#" uk-icon="icon: search"></a>
-                            <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
-                                <form class="uk-search uk-search-navbar uk-width-1-1" action="{{ route('search') }}" method="GEt">
-                                    <input class="uk-search-input" type="search" name="search" placeholder="Search..." autofocus>
-                                </form>
-                            </div>
-                        </li>
-                    </ul>
+                    <a href="{{ route('login') }}" class="uk-button uk-button-primary">Sign In</a>
                 </div>
                 @else
                 <ul class="uk-navbar-nav">
@@ -64,7 +38,7 @@
                                 <li class="uk-nav-divider"></li>
                                 <li>
                                     <a href="#" onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">Sign out
+                                    document.getElementById('logout-form').submit();">Sign out
                                         <span class="uk-float-right" uk-icon="icon: sign-out"></span>
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -79,4 +53,3 @@
             </div>
         </div>
     </nav>
-</div>

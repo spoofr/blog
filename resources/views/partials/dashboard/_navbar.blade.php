@@ -1,7 +1,7 @@
 <nav class="uk-navbar-container">
     <div class="uk-container uk-container-expand" uk-navbar>
         <div class="uk-navbar-left">
-            <a href="#" class="uk-navbar-item uk-logo">Blog</a>
+            <a href="/" class="uk-navbar-item uk-logo">Blog</a>
         </div>
         <div class="uk-navbar-right">
             @guest
