@@ -21,7 +21,7 @@
                         {{ $loop->iteration }}
                     </td>
                     <td>
-                        <img class="uk-comment-avatar uk-border-rounded" src="{{ asset('/images/avatars/' . $user->profile->avatar) }}" width="80"
+                        <img class="uk-comment-avatar uk-border-rounded" src="{{ $user->profile->avatar }}" width="80"
                             height="80" alt="">
                     </td>
                     <td>

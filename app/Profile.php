@@ -10,6 +10,11 @@ class Profile extends Model
         'avatar', 'about', 'twitter', 'user_id',
     ];
 
+    public function getAvatarAttribute($avatar)
+    {
+        return asset('/images/avatars/' . $avatar);
+    }
+
     public function user()
     {
         return $this->belongsTo('App\User');

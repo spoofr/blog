@@ -31,16 +31,17 @@
                 </article>
 
                 <hr class="uk-margin-large"> {{-- Profile --}}
-                <div class="uk-card uk-card-body uk-card-default uk-margin-medium uk-card-small">
-                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                <div class="uk-card uk-card-body uk-card-default uk-margin-medium">
+                    <div class="uk-grid-small" uk-grid>
                         <div class="uk-width-auto uk-margin-right">
-                            <img class="uk-border-circle" src="https://getuikit.com/assets/uikit/tests/images/avatar.jpg" width="70" alt="">
+                            <img class="uk-border-circle" src="{{ $single_post->user->profile->avatar }}" width="70" alt="">
                         </div>
                         <div class="uk-width-expand">
-                            <h3 class="uk-card-title">Profile</h3>
+                            <h3 class="uk-card-title">{{ $single_post->user->name }}</h3>
                             <p class="uk-text-meta uk-margin-remove-top">
-                                <time datetime="2016-04-01T19:00">Lorem ipsum sit amet, consectetur sadipscing</time>
+                                <time datetime="2016-04-01T19:00">{{ $single_post->user->profile->about }}</time>
                             </p>
+                            <a href="{{ $single_post->user->profile->twitter }}" target="_blank" class="uk-icon-button" uk-icon="twitter"></a>
                         </div>
                     </div>
                 </div>

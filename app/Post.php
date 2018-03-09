@@ -14,7 +14,7 @@ class Post extends Model
 
     // Variable for mass asignment
     protected $fillable = [
-        'title', 'content', 'category_id', 'slug', 'featured_image',
+        'title', 'content', 'category_id', 'slug', 'featured_image', 'user_id',
     ];
 
     // Accessor for $featured_image
@@ -32,5 +32,10 @@ class Post extends Model
     public function tags() 
     {
         return $this->belongstoMany('App\Tag');
+    }
+
+    public function user()
+    {
+        return $this->belongsto('App\User');
     }
 }

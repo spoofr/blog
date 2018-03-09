@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Post;
 use App\Category;
 use App\Tag;
@@ -34,6 +35,7 @@ class PostController extends Controller
             'name' => 'required'
         ]);
         $post = new Post;
+        $post->user_id = Auth::id();
         $post->title = $request->title;
         $post->content = $request->content;
         $post->category_id = $request->category_id;

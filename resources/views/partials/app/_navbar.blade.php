@@ -35,6 +35,18 @@
                     </ul>
                 </div>
                 @else
+                <div class="uk-navbar-item">
+                    <ul class="uk-grid-small" uk-grid>
+                        <li>
+                            <a class="uk-icon-link" href="#" uk-icon="icon: search"></a>
+                            <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
+                                <form class="uk-search uk-search-navbar uk-width-1-1" action="{{ route('search') }}" method="GEt">
+                                    <input class="uk-search-input" type="search" name="search" placeholder="Search..." autofocus>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 <ul class="uk-navbar-nav">
                     <li>
                         <a href="#" class="uk-icon-link" uk-icon="icon: user"></a>
