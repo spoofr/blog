@@ -76,7 +76,7 @@
             <div class="uk-margin">
                 <label class="uk-form-label">Content:</label>
                 <div class="uk-form-controls">
-                    <textarea class="uk-textarea" rows="5" name="content">{{ $post->content }}</textarea>
+                    <textarea class="uk-textarea" rows="5" name="content" id="trumbowyg">{{ $post->content }}</textarea>
                     @if ($errors->has('content'))
                     <div class="uk-margin uk-text-danger">
                         <p>{{ $errors->first('content') }}</p>
@@ -91,4 +91,28 @@
         </form>
     </div>
 </div>
+@endsection
+
+@section('styles') {{-- Styles --}} 
+<link rel="stylesheet" href="{{ asset('trumbowyg/dist/ui/trumbowyg.min.css') }}"> {{-- Import Trumbowyg styles --}} 
+@endsection 
+
+@section('scripts') {{-- Scripts --}} 
+
+{{-- Import jQuery --}}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')
+</script>
+
+{{-- Import Trumbowyg --}}
+<script src="{{ asset('trumbowyg/dist/trumbowyg.js') }}"></script>  
+
+{{-- Init Trumbowyg --}}
+<script>
+    $('#trumbowyg').trumbowyg({
+        autogrow: true
+    });
+</script>
+
 @endsection

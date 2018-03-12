@@ -18,7 +18,7 @@
                         <img src="{{ $post->featured_image }}" alt="">
                     </div>
                     <div class="uk-card-body">
-                        <p>{{ $post->content }}</p>
+                        <p>{!! $post->content !!}</p>
                         <a href="{{ route('post.single', $post->slug) }}" class="uk-button uk-button-text">Read more..</a>
                         <ul class="uk-subnav uk-subnav-pill uk-float-right uk-margin-remove-top" uk-margin>
                             <li class="uk-active">

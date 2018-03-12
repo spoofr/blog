@@ -15,7 +15,7 @@
                     </h1>
 
                     <p class="uk-article-meta">Written by
-                        <a href="#">Super User</a> on {{ $single_post->created_at->toFormattedDateString() }}. Posted in
+                        <a href="#">{{ $single_post->user->name }}</a> on {{ $single_post->created_at->toFormattedDateString() }}. Posted in
                         <a href="#">{{ $single_post->category->name }}</a>
                     </p>
 
