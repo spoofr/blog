@@ -10,10 +10,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/', 'PageController@index')                                       ->name('home');
-Route::get('/post/{slug}', 'PageController@singlePage')                                       ->name('post.single');
-Route::get('/category/{id}', 'PageController@categoryPage')                                       ->name('category.single');
+// Signle URLs
+Route::get('/', 'PageController@index')                                                 ->name('home');
+Route::get('/post/{slug}', 'PageController@singlePage')                                 ->name('post.single');
+Route::get('/category/{id}', 'PageController@categoryPage')                             ->name('category.single');
 Route::get('/tag/{id}', 'PageController@tagPage')                                       ->name('tag.single');
+
+// Search
 Route::get('/search', function () {
     $posts = App\Post::where('title', 'like', '%' . request('search') . '%')->get();
     $categories = App\Category::take(5)->get();        
@@ -28,7 +31,7 @@ Route::get('/search', function () {
 Route::middleware('auth')->group(function (){
 
     // Home
-    Route::get('/admin/home', 'HomeController@index')                                       ->name('home');
+    Route::get('/admin/home', 'HomeController@index')                                   ->name('home');
 
     // Post
     Route::get('/admin/post/', 'PostController@index')                                  ->name('post.index');

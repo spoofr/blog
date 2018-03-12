@@ -24,7 +24,7 @@
                     <div class="uk-grid-small uk-margin-large-top" uk-grid>
                         @foreach($single_post->tags as $tag)
                         <div>
-                            <a href=""><span class="uk-badge">{{ $tag->name }}</span></a>
+                            <a href="{{ route('tag.single', $tag->id) }}"><span class="uk-badge">{{ $tag->name }}</span></a>
                         </div>
                         @endforeach
                     </div>
