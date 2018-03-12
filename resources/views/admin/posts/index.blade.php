@@ -25,7 +25,7 @@
                         <img class="uk-height-small uk-border-rounded" src="{{ $post->featured_image }}">
                     </td>
                     <td>{{ $post->title }}</td>
-                    <td>{{ $post->content }}</td>
+                    <td>{!! $post->content !!}</td>
                     <td>{{ $post->category->name }}</td>
                     <td>
                         @foreach($post->tags as $tag)
