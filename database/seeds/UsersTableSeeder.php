@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
             'user_id' => $user->id,
             'avatar' => 'avatar.jpg',
             'about' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi excepturi inventore adipisci nesciunt soluta assumenda amet eveniet cupiditate minus corporis illum natus cum, ipsa repellendus delectus fuga harum consectetur.',
-            'twitter' => 'twitter.com'
+            'twitter' => 'https://twitter.com'
         ]);
         
         // use Illuminate\Support\Facades\DB;
