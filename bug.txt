@@ -1,0 +1,9 @@
+Fix Needed.
+
+Image not deleted after updating and deleting posts.
+Disqus not installed yet. 
+Email subscription not configured.
+Category and tags pretty URL.
+Truncate post content...
+Patch WYSIWYG security flaws, Cross-site Scripting (XSS) attack.. use Purifier.
+Add link in dashboard post index.
